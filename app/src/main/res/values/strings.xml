@@ -7,8 +7,12 @@
     <string name="button_start_go">s t a r t</string>
 
     <string name="text_main_enjoy">Are you enjoying the game?</string>
-    <string name="text_main_days_elapsed">You started playing X days ago,</string>
-    <string name="text_main_start_time">at 20:01:11 on Sun, 23 Aug 2020</string>
-    <string name="text_main_roll">You may roll again in...</string>
-    <string name="button_main_open_in">15:49:17</string>
+    <string name="text_main_days_elapsed">You started playing at</string>
+    <string name="text_main_start_time">20:01:11 on Sun, 23 Aug 2020</string>
+    <string name="text_main_start_on">" on\n"</string>
+
+    <string name="text_main_roll_in">You may roll again in...</string>
+    <string name="text_main_roll_now">You may roll again now!</string>
+    <string name="button_main_roll_in">15:49:17</string>
+    <string name="button_main_roll_now">ROLL !</string>
 </resources>
