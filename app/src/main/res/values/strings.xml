@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Dice</string>
+
+    <string name="text_start_title">Dice Game Rules</string>
+    <string name="text_start_rules">We\'re going to play a game with your chastity. We throw these two dice. If you get a double, congratulations - you may unlock. If not - too bad. You have to wait a day before you can try again.\n\nBut if you throw a one, you have to wait for the number of days as shown on the other die.\n\nUnless you throw a double one. Then you have to wait a week before asking.\n\n\nClick the go button when you\'re ready to start.</string>
+    <string name="checkbox_start_locked">i\'m locked and ready</string>
+    <string name="button_start_go">s t a r t</string>
+
+    <string name="text_main_enjoy">Are you enjoying the game?</string>
+    <string name="text_main_days_elapsed">You started playing X days ago,</string>
+    <string name="text_main_start_time">at 20:01:11 on Sun, 23 Aug 2020</string>
+    <string name="text_main_roll">You may roll again in...</string>
+    <string name="button_main_open_in">15:49:17</string>
 </resources>
