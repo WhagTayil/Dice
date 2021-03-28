@@ -19,17 +19,17 @@ public class MainViewModel extends ViewModel /*implements Parcelable*/ {
     // .DATE (5) .HOUR (10) .MINUTE (12) .SECOND (13)
     private static int chastityTimeUnit = Calendar.SECOND;
     private static int chastityTimeDuration = 10;
-
     private static int NUM_DICE = 2;
-    private static int[] dice = {5, 1};
+
+    private static int[] dice = {1, 4};
     private static Calendar nextRollDate = Calendar.getInstance();
     private static Calendar startDate = Calendar.getInstance();
     public enum GameState { START, WAITING, ROLLING, ROLLED, FINISH }
-    private static GameState currentState = GameState.WAITING;
+    private static GameState currentState = GameState.START;
 
-    private static final Random rnd = new Random();
+    //private static final Random rnd = new Random();
 
-    public MainViewModel() { }
+    public MainViewModel() { setNextRollDate(); }
 
 /*    public int describeContents() {
         return 0;
@@ -93,11 +93,17 @@ public class MainViewModel extends ViewModel /*implements Parcelable*/ {
     }
 
 
-    private void setNextRollDate(int numUnits) {
+    public void setNextRollDate(int numUnits) {
         nextRollDate = Calendar.getInstance();
         nextRollDate.add(chastityTimeUnit, chastityTimeDuration * numUnits);
     }
     public void setNextRollDate() { setNextRollDate(1); }
+
+    public void startGame() {
+        setState(GameState.WAITING);
+        startDate = Calendar.getInstance();
+        setNextRollDate();
+    }
 
 /*
     public void setBoxes(int totalBoxes, int[] numberOfBoxes) {
@@ -161,12 +167,22 @@ public class MainViewModel extends ViewModel /*implements Parcelable*/ {
     public GameState getState() {
         return currentState;
     }
+    public void setState(GameState state) { currentState = state; }
+
+    public void setDice(int d1, int d2) { dice[0] = d1; dice[1] = d2; }
+    public int getDice(int n) { return dice[n]; }
 
     public String getStartTime() {
         return getTimeString(startDate);
     }
     public String getStartDate() {
         return getDateString(startDate);
+    }
+    public String getEndTime() {
+        return getTimeString(nextRollDate);
+    }
+    public String getEndDate() {
+        return getDateString(nextRollDate);
     }
 
     public long getTimeToNextRoll() {

@@ -20,11 +20,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewMainDaysElapsed"
+        android:id="@+id/textViewMainStarted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/text_main_days_elapsed"
+        android:text="@string/text_main_started"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainEnjoy" />
@@ -34,16 +34,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
         android:text="@string/text_main_start_time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMainDaysElapsed" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewMainStarted" />
 
     <TextView
         android:id="@+id/textViewMainRoll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="16dp"
         android:text="@string/text_main_roll_in"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,15 +66,15 @@
         android:id="@+id/imageViewMainDice01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="32dp"
         android:scaleX="2"
         android:scaleY="2"
         android:src="@drawable/ic_looks_5_black_48dp_2tone"
-        app:tint="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/imageViewMainDice02"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMainRoll" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMainRoll"
+        app:tint="@color/colorAccent" />
 
     <ImageView
         android:id="@+id/imageViewMainDice02"
@@ -87,5 +88,26 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageViewMainDice01"
         app:layout_constraintTop_toTopOf="@+id/imageViewMainDice01" />
+
+    <TextView
+        android:id="@+id/textViewMainEnded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/text_main_ended"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMainDice01" />
+
+    <TextView
+        android:id="@+id/textViewMainEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:text="@string/text_main_end_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMainEnded" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

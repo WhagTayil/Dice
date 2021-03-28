@@ -7,12 +7,29 @@
     <string name="button_start_go">s t a r t</string>
 
     <string name="text_main_enjoy">Are you enjoying the game?</string>
-    <string name="text_main_days_elapsed">You started playing at</string>
+    <string name="text_main_started">You started playing at</string>
     <string name="text_main_start_time">20:01:11 on Sun, 23 Aug 2020</string>
     <string name="text_main_start_on">" on\n"</string>
-
     <string name="text_main_roll_in">You may roll again in...</string>
     <string name="text_main_roll_now">You may roll again now!</string>
     <string name="button_main_roll_in">15:49:17</string>
     <string name="button_main_roll_now">ROLL !</string>
+
+    <string name="text_main_enjoyed">Did you enjoy the game?</string>
+    <string name="text_main_roll_click">Click ok to start again</string>
+    <string name="text_main_ended">The game ended at</string>
+    <string name="text_main_end_time">20:01:11 on Mon, 24 Aug 2020</string>
+    <string name="button_main_roll_ok">O. K.</string>
+
+    <string name="text_rolling_ok">Ok. Let\'s roll the dice.</string>
+    <string name="text_rolling_go">here we go...</string>
+    <string name="text_rolling_result_double">Ooh! You got a double</string>
+    <string name="text_rolling_result_fail">No. Try again tomorrow</string>
+    <string name="text_rolling_result_one">Haha! You threw a one</string>
+    <string name="text_rolling_result_double_one">Unh, double 1. Too bad.</string>
+    <string name="text_rolling_continue">continue</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
