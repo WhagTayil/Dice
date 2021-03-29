@@ -12,15 +12,12 @@ import org.whagtayil.dice.ui.main.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     private static final String LOGTAG = "DICE:MainActivity";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(LOGTAG, "onCreate()");
         setContentView(R.layout.main_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -32,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void showStartScreen() {
+        Log.d(LOGTAG, "showStartScreen()");
+
         StartFragment fragment = new StartFragment();
 
         FragmentManager fragmentManager = getSupportFragmentManager();

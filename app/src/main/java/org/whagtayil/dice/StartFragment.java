@@ -15,11 +15,6 @@ import android.view.ViewGroup;
 
 import org.whagtayil.dice.ui.main.MainViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link StartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class StartFragment extends Fragment {
 
     private static final String LOGTAG = "DICE:StartFragment";
@@ -33,16 +28,34 @@ public class StartFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d(LOGTAG, "onCreate()");
+
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        Log.d(LOGTAG, "onCreateView()");
+
         return inflater.inflate(R.layout.start_fragment, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d(LOGTAG, "onViewCreated()");
+
+        mViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
+
+        Activity activity = getActivity();
+        mButton = activity.findViewById(R.id.buttonStartGo);
+        mButton.setEnabled(false);
+        mButton.setOnClickListener(onClickButton);
+
+        View checkBox = activity.findViewById(R.id.checkBoxStartReady);
+        checkBox.setOnClickListener(onClickCheckBox);
+    }
 
 
     private View mButton;
@@ -58,20 +71,6 @@ public class StartFragment extends Fragment {
         mButton.setEnabled(mChecked);
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        mViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
-
-        Activity activity = getActivity();
-        mButton = activity.findViewById(R.id.buttonStartGo);
-        mButton.setEnabled(false);
-        mButton.setOnClickListener(onClickButton);
-
-        View checkBox = activity.findViewById(R.id.checkBoxStartReady);
-        checkBox.setOnClickListener(onClickCheckBox);
-    }
 
     public final View.OnClickListener onClickButton = new View.OnClickListener() {
         public void onClick(View v) {

@@ -98,14 +98,17 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        Log.d(LOGTAG, "onCreateView()");
+
         return inflater.inflate(R.layout.main_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Log.d(LOGTAG, "onActivityCreated()");
+
         mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        // TODO: Use the ViewModel
     }
 
 
@@ -113,6 +116,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.d(LOGTAG, "onViewCreated()");
 
         FragmentActivity activity = getActivity();
         buttonMainRoll = activity.findViewById(R.id.buttonMainRoll);
@@ -188,7 +192,6 @@ public class MainFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-
         Log.d(LOGTAG, "onStop()");
 
         handler.removeCallbacks(run);

@@ -26,11 +26,6 @@ import java.util.Random;
 
 import static java.lang.Integer.max;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RollingFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RollingFragment extends Fragment {
     private static final String LOGTAG = "DICE:RollingFragment";
 
@@ -62,13 +57,6 @@ public class RollingFragment extends Fragment {
 
 
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment.
-     *
-     * @return A new instance of fragment RollingFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static RollingFragment newInstance() {
         RollingFragment fragment = new RollingFragment();
         return fragment;
@@ -77,18 +65,22 @@ public class RollingFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.d(LOGTAG, "onCreate()");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        Log.d(LOGTAG, "onCreateView()");
+
         return inflater.inflate(R.layout.rolling_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.d(LOGTAG, "onViewCreated()");
 
         mViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
@@ -134,7 +126,7 @@ public class RollingFragment extends Fragment {
     };
 
     public void onButtonContinue(View v) {
-        Log.d(LOGTAG, "onButtonRoll()");
+        Log.d(LOGTAG, "onButtonContinue()");
 
         mViewModel.setState(MainViewModel.GameState.WAITING);
 
@@ -201,5 +193,6 @@ public class RollingFragment extends Fragment {
             }
         });
         animation.start();
+        Log.d(LOGTAG, "anim start");
     }
 }

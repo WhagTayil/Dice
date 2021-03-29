@@ -27,8 +27,6 @@ public class MainViewModel extends ViewModel /*implements Parcelable*/ {
     public enum GameState { START, WAITING, ROLLING, ROLLED, FINISH }
     private static GameState currentState = GameState.START;
 
-    //private static final Random rnd = new Random();
-
     public MainViewModel() { setNextRollDate(); }
 
 /*    public int describeContents() {
@@ -99,69 +97,12 @@ public class MainViewModel extends ViewModel /*implements Parcelable*/ {
     }
     public void setNextRollDate() { setNextRollDate(1); }
 
+
     public void startGame() {
         setState(GameState.WAITING);
         startDate = Calendar.getInstance();
         setNextRollDate();
     }
-
-/*
-    public void setBoxes(int totalBoxes, int[] numberOfBoxes) {
-        boxes = new int[totalBoxes];
-        for (int i=0; i < totalBoxes; ++i) {
-            boxes[i] = 0;
-        }
-
-        numBoxesOpen = 0;
-        while (numBoxesOpen < totalBoxes) {
-            for (int i = 0; i < 8; ++i) {
-                if (numberOfBoxes[i] > 0) {
-                    boxes[numBoxesOpen++] = i + 1;
-                    numberOfBoxes[i] -= 1;
-                }
-            }
-            if (numberOfBoxes[8] > 0) {
-                boxes[numBoxesOpen++] = 0;
-                numberOfBoxes[8] -= 1;
-            }
-        }
-    }
-
-
-    public void startGame() {
-        currentState = GameState.PLAY;
-
-        // Shuffle boxes
-        for (int i = boxes.length - 1; i > 0; i--) {
-            int index = rnd.nextInt(i + 1);
-            // Simple swap
-            int a = boxes[index];
-            boxes[index] = boxes[i];
-            boxes[i] = a;
-        }
-        numBoxesOpen = 0;
-
-        startDate = Calendar.getInstance();
-        setNextBoxDate();
-
-        log("BOXES:MainViewModel.startGame()");
-    }
-
-    public int openBox() {
-        int contents = boxes[numBoxesOpen++];
-
-        if (contents == 0)
-            currentState = GameState.FINISH;
-        else if (contents == 8)
-            currentState = GameState.INFINITY;
-        else {
-            currentState = GameState.PLAY;
-            setNextBoxDate(contents);
-        }
-
-        return contents;
-    }
-*/
 
 
     public GameState getState() {
@@ -190,29 +131,14 @@ public class MainViewModel extends ViewModel /*implements Parcelable*/ {
         return nextRollDate.getTimeInMillis() - now.getTimeInMillis();
     }
 
+/*
     public int getChastityTimeDuration() { return chastityTimeDuration; }
     public int getChastityTimeUnit() { return chastityTimeUnit; }
     public void setChastityTime(int unit, int duration) {
         chastityTimeUnit = unit;
         chastityTimeDuration = duration;
     }
-
-/*
-    public int getNumBoxes() {
-        return boxes.length;
-    }
-    public int getNumBoxesOpen() {
-        return numBoxesOpen;
-    }
-
-    public int peekBox(int i) {
-        return boxes[i];
-    }
-    public int peekNextBox() {
-        return peekBox(numBoxesOpen);
-    }
 */
-
 
     public void log(String LOGTAG) {
         if (BuildConfig.DEBUG) {
