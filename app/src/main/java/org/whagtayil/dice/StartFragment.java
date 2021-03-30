@@ -81,8 +81,6 @@ public class StartFragment extends Fragment {
     public void onButtonGo(View v) {
         Log.d(LOGTAG, "onButtonGo()");
 
-        mViewModel.startGame();
-
         MainActivity activity = (MainActivity) getActivity();
         activity.onButtonStartGo(mButton);
     }

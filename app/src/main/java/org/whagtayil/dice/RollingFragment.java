@@ -180,14 +180,16 @@ public class RollingFragment extends Fragment {
         animation.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                imageViewDice01.setAlpha(1.0f);
-                imageViewDice02.setAlpha(1.0f);
-
                 super.onAnimationEnd(animation);
                 Log.d(LOGTAG, " anim end");
 
+                imageViewDice01.setAlpha(1.0f);
+                imageViewDice02.setAlpha(1.0f);
+
                 mViewModel.setState(MainViewModel.GameState.ROLLED);
                 mViewModel.setDice(diceRoll01, diceRoll02);
+                MainActivity activity = (MainActivity) getActivity();
+                activity.writeSaveData();
 
                 setUIPostRoll();
             }

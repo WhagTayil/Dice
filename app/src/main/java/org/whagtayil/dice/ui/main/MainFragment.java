@@ -109,6 +109,7 @@ public class MainFragment extends Fragment {
         Log.d(LOGTAG, "onActivityCreated()");
 
         mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        mViewModel.log(LOGTAG);
     }
 
 
@@ -210,13 +211,9 @@ public class MainFragment extends Fragment {
 
         MainActivity activity = (MainActivity) getActivity();
         if (mViewModel.getState() == MainViewModel.GameState.WAITING) {
-            mViewModel.setState(MainViewModel.GameState.ROLLING);
-
             activity.onButtonMainRoll(buttonMainRoll);
         }
         else if (mViewModel.getState() == MainViewModel.GameState.FINISH) {
-            mViewModel.setState(MainViewModel.GameState.START);
-
             activity.showStartScreen();
         }
     }

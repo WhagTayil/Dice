@@ -17,8 +17,8 @@ import java.util.Random;
 public class MainViewModel extends ViewModel /*implements Parcelable*/ {
 
     // .DATE (5) .HOUR (10) .MINUTE (12) .SECOND (13)
-    private static int chastityTimeUnit = Calendar.SECOND;
-    private static int chastityTimeDuration = 10;
+    private static int chastityTimeUnit = Calendar.MINUTE;
+    private static int chastityTimeDuration = 1;
     private static int NUM_DICE = 2;
 
     private static int[] dice = {1, 4};
@@ -27,7 +27,7 @@ public class MainViewModel extends ViewModel /*implements Parcelable*/ {
     public enum GameState { START, WAITING, ROLLING, ROLLED, FINISH }
     private static GameState currentState = GameState.START;
 
-    public MainViewModel() { setNextRollDate(); }
+    public MainViewModel() { }
 
 /*    public int describeContents() {
         return 0;
@@ -145,7 +145,7 @@ public class MainViewModel extends ViewModel /*implements Parcelable*/ {
             StringBuilder s = new StringBuilder("dice:- " + dice[0] + ", " + dice[1]);
             Log.v(LOGTAG, s.toString());
             Log.v(LOGTAG, "Start - " + getStartTime() + " " + getStartDate());
-            Log.v(LOGTAG, " Next - " + getTimeString(nextRollDate) + " " + getDateString(nextRollDate));
+            Log.v(LOGTAG, " Next - " + getEndTime() + " " + getEndDate());
             Log.v(LOGTAG, "delta - " + chastityTimeDuration + " [5/10/12/13]=" + chastityTimeUnit);
             Log.v(LOGTAG, "State - " + currentState.name());
         }
