@@ -17,7 +17,7 @@ import java.util.Random;
 public class MainViewModel extends ViewModel /*implements Parcelable*/ {
 
     // .DATE (5) .HOUR (10) .MINUTE (12) .SECOND (13)
-    private static int chastityTimeUnit = Calendar.MINUTE;
+    private static int chastityTimeUnit = Calendar.DATE;
     private static int chastityTimeDuration = 1;
     private static int NUM_DICE = 2;
 
@@ -142,7 +142,7 @@ public class MainViewModel extends ViewModel /*implements Parcelable*/ {
 
     public void log(String LOGTAG) {
         if (BuildConfig.DEBUG) {
-            StringBuilder s = new StringBuilder("dice:- " + dice[0] + ", " + dice[1]);
+            StringBuilder s = new StringBuilder("dice:- " + (dice[0] + 1) + ", " + (dice[1] + 1));
             Log.v(LOGTAG, s.toString());
             Log.v(LOGTAG, "Start - " + getStartTime() + " " + getStartDate());
             Log.v(LOGTAG, " Next - " + getEndTime() + " " + getEndDate());
